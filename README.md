@@ -18,7 +18,7 @@ Aplikasi ini memiliki beberapa peran dan fungsionalitas yang dirancang untuk mem
 - Composer
 - Laravel 10
 - SQlite
-- Tailwind CSS
+- Node.js dan npm (untuk pengaturan Tailwind CSS dan Flowbite)
 
 ##Relasi Database
 Struktur dan relasi antar tabel dalam aplikasi ini bisa dilihat pada diagram database berikut:
@@ -52,21 +52,21 @@ Struktur dan relasi antar tabel dalam aplikasi ini bisa dilihat pada diagram dat
     php artisan serve
     ```
 
-##Penggunaan
+## Penggunaan
 Setelah aplikasi berjalan di server lokal, kita dapat langsung mengaksesnya dan login menggunakan salah satu dari akun berikut:
 
-####Login sebagai Kaprodi
-Email: kasiyah00@yahoo.com
-Password: password123
+#### Login sebagai Kaprodi
+- Email: kasiyah00@yahoo.com
+- Password: password123
 
-####Login sebagai Dosen Wali
-Email: lega48@gmail.com
-Password: password123
+#### Login sebagai Dosen Wali
+- Email: lega48@gmail.com
+- Password: password123
 
-####Login sebagai Dosen Biasa
-Email: gamani25@gmail.com
-Password: password123
+#### Login sebagai Dosen Biasa
+- Email: gamani25@gmail.com
+- Password: password123
 
-####Login sebagai Mahasiswa
-Email: imam09@yahoo.co.id
-Password: password123
+#### Login sebagai Mahasiswa
+- Email: imam09@yahoo.co.id
+- Password: password123
