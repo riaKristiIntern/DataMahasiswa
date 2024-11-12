@@ -20,7 +20,7 @@ Aplikasi ini memiliki beberapa peran dan fungsionalitas yang dirancang untuk mem
 - SQlite
 - Node.js dan npm (untuk pengaturan Tailwind CSS dan Flowbite)
 
-##Relasi Database
+## Relasi Database
 Struktur dan relasi antar tabel dalam aplikasi ini bisa dilihat pada diagram database berikut:
 
 [Diagram Database – Sistem Akademik Mahasiswa](https://dbdiagram.io/d/Data-Mahasiswa-66a99f438b4bb5230eccaaef)
