@@ -37,7 +37,7 @@
                         @if ($ds->kelas)
                         {{ $ds->kelas->name }}
                         @else
-                        <span class="text-red-500">Belum ditugaskan</span>
+                        <span class="text-gray-400">Belum ditugaskan</span>
                         @endif
                     </td>
                     <!-- tombol edit -->
@@ -73,7 +73,8 @@
     Swal.fire({
         icon: 'success',
         title: 'Berhasil!',
-        text: '{{ session('success') }}',
+        text: '{{ session('
+        success ') }}',
         confirmButtonText: 'OK',
     });
     @endif

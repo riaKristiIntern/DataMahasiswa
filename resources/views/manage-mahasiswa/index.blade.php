@@ -37,7 +37,7 @@
                         @if ($mhs->kelas)
                         {{ $mhs->kelas->name }}
                         @else
-                        <span class="text-red-500">Belum bergabung</span>
+                        <span class="text-gray-400">Belum bergabung</span>
                         @endif
                     </td>
                     <!-- tombol edit -->
