@@ -13,9 +13,16 @@ class MahasiswaController extends Controller
 {
     public function index()
     {
-        $mahasiswa = Mahasiswa::all();
+        $kelasId = auth()->user()->dosen->kelas_id; 
+
+        // mahasiswa yang memiliki kelas yang sama dengan kelas dosen wali
+        $mahasiswa = Mahasiswa::where('kelas_id', $kelasId)
+            ->orWhereNull('kelas_id') 
+            ->get();
+
         return view('manage-mahasiswa.index', compact('mahasiswa'));
     }
+
 
     // Tambah data mahasiswa
     public function create()
@@ -24,7 +31,7 @@ class MahasiswaController extends Controller
         return view('manage-mahasiswa.create', compact('kelas'));
     }
 
-    // Handle proses form tambah mahasiswa
+    // proses form tambah mahasiswa
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -93,8 +100,7 @@ class MahasiswaController extends Controller
         if ($mahasiswa->user) {
             $mahasiswa->user->delete();
         }
-    
-        // Hapus mahasiswa
+
         $mahasiswa->delete();
         return redirect()->route('manage-mahasiswa.index')->with('success', 'Data mahasiswa berhasil dihapus!');
     }
@@ -104,7 +110,7 @@ class MahasiswaController extends Controller
     {
         $permohonan = studentRequestEdit::findOrFail($requestId);
 
-        // Update status `edit` pada mahasiswa
+        // Update status edit 
         $mahasiswa = Mahasiswa::findOrFail($permohonan->mahasiswa_id);
         $mahasiswa->edit = true;
         $mahasiswa->save();

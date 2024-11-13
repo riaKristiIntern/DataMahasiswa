@@ -25,7 +25,7 @@ class RoleMiddleware
                 return $next($request);
             }
         } else {
-            Log::info('User is not authenticated.'); // Logging jika pengguna tidak terautentikasi
+            Log::info('User is not authenticated.'); 
         }
 
         return redirect()->route('dashboard')->with('error', 'Anda tidak memiliki akses ke halaman ini');

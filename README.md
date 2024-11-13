@@ -1,7 +1,5 @@
 # DataMahasiswa
 
-<<<<<<< HEAD
-=======
 # Aplikasi Sistem Akademik Mahasiswa
 
 Aplikasi sistem akademik mahasiswa ini dirancang untuk mengelola data mahasiswa, dosen, dan kelas dalam suatu institusi pendidikan. Sistem ini membedakan peran antara Kaprodi, Dosen, dan Mahasiswa dengan kemampuan akses dan manipulasi data yang berbeda-beda sesuai dengan peran masing-masing.
@@ -72,4 +70,3 @@ Setelah aplikasi berjalan di server lokal, kita dapat langsung mengaksesnya dan 
 #### Login sebagai Mahasiswa
 - Email: imam09@yahoo.co.id
 - Password: password123
->>>>>>> 9f62119f8c2cd98bbbef04d17992198185080827

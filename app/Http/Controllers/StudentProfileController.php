@@ -24,7 +24,7 @@ class StudentProfileController extends Controller
     {
         $mahasiswa = auth()->user()->mahasiswa;
 
-        // Cek apakah sudah ada permohonan yang menunggu persetujuan
+        // Cek permohonan yang menunggu persetujuan
         if ($mahasiswa->edit) {
             return redirect()->back()->with('error', 'Anda sudah memiliki permohonan yang sedang diproses.');
         }
@@ -33,26 +33,24 @@ class StudentProfileController extends Controller
 
         // Validasi data permohonan
         $request->validate([
-            'keterangan' => 'required|string', // Keterangan mengenai alasan permohonan edit
+            'keterangan' => 'required|string',
         ]);
 
         try {
             Log::info("Request edit started for mahasiswa_id: {$mahasiswa->id}");
 
-            // Simpan permohonan ke tabel request
+            // Simpan permohonan 
             studentRequestEdit::create([
                 'kelas_id' => $mahasiswa->kelas_id,
                 'mahasiswa_id' => $mahasiswa->id,
                 'keterangan' => $request->input('keterangan'),
             ]);
             Log::info("Request edit data created successfully for mahasiswa_id: {$mahasiswa->id}");
-            // Update status edit di tabel mahasiswa
-
-            // Berikan pesan keberhasilan ke session flash
+        
             return redirect()->route('mahasiswa.index')->with('success', 'Permohonan edit data telah diajukan.');
         } catch (\Exception $e) {
             Log::error("Error in requestEdit: " . $e->getMessage());
-            // Berikan pesan error jika terjadi kegagalan
+            
             return redirect()->route('mahasiswa.index')->with('error', 'Gagal mengajukan permohonan edit.');
         }
     }
@@ -62,17 +60,17 @@ class StudentProfileController extends Controller
     {
         $mahasiswa = auth()->user()->mahasiswa;
 
-        // Pastikan mahasiswa memang memiliki hak akses edit
         if (!$mahasiswa->edit) {
             return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk mengedit data.');
         }
 
-        // Validasi data yan~g akan disimpan
+        // Validasi data yang akan disimpan
         $request->validate([
             'name' => 'required|string|max:255',
             'tempat_lahir' => 'required|string|max:255',
             'tanggal_lahir' => 'required|date',
         ]);
+        
         // Update data mahasiswa
         $mahasiswa->update([
             'name' => $request->input('name'),

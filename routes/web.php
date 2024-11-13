@@ -37,14 +37,14 @@ Route::middleware(['auth'])->group(function () {
 
     // role dosen wali kelas
     Route::middleware('role:dosen wali')->group(function () {
-        Route::get('/dosen/profile', [DosenProfileController::class, 'profile'])->name('dosenWali.profile');
-        Route::get('/dosen/edit', [DosenProfileController::class, 'edit'])->name('dosenWali.edit')->middleware('auth');
-        Route::post('/dosen/update', [DosenProfileController::class, 'update'])->name('dosenWali.update')->middleware('auth');
+        Route::get('/dosen-wali/profile', [DosenProfileController::class, 'profile'])->name('dosenWali.profile');
+        Route::get('/dosen-wali/edit', [DosenProfileController::class, 'edit'])->name('dosenWali.edit')->middleware('auth');
+        Route::post('/dosen-wali/update', [DosenProfileController::class, 'update'])->name('dosenWali.update')->middleware('auth');
 
-        Route::resource('/dosen/manage-mahasiswa', MahasiswaController::class)->except(['show'])->parameters(['manage-mahasiswa' => 'mahasiswa',]);
-        Route::post('/dosen/approve-request/{id}', [MahasiswaController::class, 'approveRequest'])->name('dosen.approveRequest');
-        Route::post('/dosen/reject-request/{id}', [MahasiswaController::class, 'rejectRequest'])->name('dosen.rejectRequest');
-        Route::get('/dosen/permohonan', [MahasiswaController::class, 'showRequestEdit'])->name('dosen.requestApproval');
+        Route::resource('/dosen-wali/manage-mahasiswa', MahasiswaController::class)->except(['show'])->parameters(['manage-mahasiswa' => 'mahasiswa',]);
+        Route::post('/dosen-wali/approve-request/{id}', [MahasiswaController::class, 'approveRequest'])->name('dosen.approveRequest');
+        Route::post('/dosen-wali/reject-request/{id}', [MahasiswaController::class, 'rejectRequest'])->name('dosen.rejectRequest');
+        Route::get('/dosen-wali/permohonan', [MahasiswaController::class, 'showRequestEdit'])->name('dosen.requestApproval');
     });
 
     // role dosen biasa
