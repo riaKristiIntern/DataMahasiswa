@@ -29,7 +29,7 @@ Struktur dan relasi antar tabel dalam aplikasi ini bisa dilihat pada diagram dat
 
 1. Clone repository ini:
    ```bash
-   git clone https://github.com/username/repository.git
+   git clone https://github.com/riaKristiIntern/sistemakademik_L10.git
    ```
 3. Masuk ke direktori proyek:
    ```bash
